@@ -7,14 +7,14 @@ const db = require('./database/mongoose.js');
     //Conexion a la DB
     db.then(() => console.log('DB Connected'));
     
+    //Crear App
+    const app = express();
+    
     //Build
     app.use(express.static('public'));
     app.get('/', (req, res) => {
       res.sendFile(path.join(__dirname, 'public', 'index.html'));
     });
-
-    //Crear App
-    const app = express();
 
     app.use(express.json());
     app.use(cors());
